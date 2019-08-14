@@ -1,0 +1,63 @@
+ <html>
+<head>
+<title>
+supplier page
+</title>
+
+<script>
+var arr=[];
+function validate()
+{
+var suppliername=document.forms["myloginform"]["suppliername"].value 
+var supplieraddress=document.forms["myloginform"]["supplieraddress"].value
+console.log(suppliername.trim().length)
+console.log(supplieraddress.trim().length)
+
+if(suppliername.trim().length==0 || supplieraddress.trim().length==0)
+{
+
+console.log("fields must have characters");
+}
+else
+{
+var user={"suppliername":suppliername,"supplieraddress":supplieraddress}
+arr.push(user)
+}
+}
+function display()
+{	
+document.write("<table border='1'>")
+document.write("<th>suppliername</th>")
+document.write("<br>")
+document.write("<th>supplier address</th>")
+document.write("<br>")
+	
+
+for(i=0;i<arr.length;i++)
+{
+document.write("<tr>")
+document.write("<td>")
+document.write(arr[i].suppliername);
+document.write("</td>");
+document.write("<td>");
+document.write(arr[i].supplieraddress);
+document.write("</td>");
+document.write("</tr>");
+}
+}
+</script>
+</head>
+<body>
+<table><h1>supplier details</h1>
+<form name='myloginform'>
+Enter the suppliername
+<input type='text' name='suppliername' placeholder='suppliername'/> <br/> <br/>
+Enter the supplier address
+<input type='text' name='supplieraddress' placeholder='supplier address'/> <br/> <br/>
+
+
+<input type='reset' value='proceed' onclick='validate()'/> <br/> <br/>
+<input type='button'  value='display' onclick='display()'/>
+</form>
+</body>
+</html>

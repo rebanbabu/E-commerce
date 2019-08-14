@@ -1,0 +1,57 @@
+ <html>
+<head>
+<title>
+category page
+</title>
+
+<script>
+var arr=[];
+function validate()
+{
+var categoryname=document.forms["myloginform"]["categoryname"].value 
+
+if(categoryname.trim().length==0)
+{
+console.log("fields must have characters");
+}
+else
+{
+var user={"categoryname":categoryname}
+arr.push(user)
+}
+}
+function display()
+{	
+document.write("<table border='1'>")
+document.write("<th>categoryname</th>")
+document.write("<br>")
+		
+
+for(i=0;i<arr.length;i++)
+{
+document.write("<tr>")
+document.write("<td>")
+document.write(arr[i].categoryname);
+document.write("</td>");
+document.write("</tr>");
+}
+}
+</script>
+</head>
+<body>
+<table><h1>category details</h1>
+
+
+
+
+Enter the categoryname
+
+<input type='text' select name='categoryname' id='dropdownlist' placeholder='categoryname'/ >
+
+
+<br/>
+<input type='reset' value='proceed' onclick='validate()'/> <br/> <br/>
+<input type='button'  value='display' onclick='display()'/>
+</form>
+</body>
+</html>

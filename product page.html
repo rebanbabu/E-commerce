@@ -1,0 +1,78 @@
+ <html>
+<head>
+<title>
+product page
+</title>
+
+<script>
+var arr=[];
+function validate()
+{
+var productname=document.forms["myloginform"]["productname"].value 
+var actualprice=document.forms["myloginform"]["actualprice"].value
+var quantity=document.forms["myloginform"]["quantity"].value
+var discountprice=document.forms["myloginform"]["discountprice"].value
+console.log(productname.trim().length)
+console.log(actualprice.trim().length)
+console.log(quantity.trim().length)
+console.log(discountprice.trim().length)
+if(productname.trim().length==0 || actualprice.trim().length==0 || quantity.trim().length==0 || discountprice.trim().length==0)
+{
+console.log("fields must have characters");
+}
+else
+{
+var user={"productname":productname,"actualprice":actualprice,"quantity":quantity,"discountprice":discountprice}
+arr.push(user)
+}
+}
+function display()
+{	
+document.write("<table border='1'>")
+document.write("<th>productname</th>")
+document.write("<br>")
+document.write("<th>actual price</th>")
+document.write("<br>")
+document.write("<th>quantity</th>")
+document.write("<br>")
+document.write("<th>discountprice</th>")
+document.write("<br>") 		
+
+for(i=0;i<arr.length;i++)
+{
+document.write("<tr>")
+document.write("<td>")
+document.write(arr[i].productname);
+document.write("</td>");
+document.write("<td>");
+document.write(arr[i].actualprice);
+document.write("</td>");
+document.write("<td>");
+document.write(arr[i].quantity);
+document.write("</td>");
+document.write("<td>");
+document.write(arr[i].discountprice);
+document.write("</td>");
+document.write("</tr>");
+}
+}
+</script>
+</head>
+<body>
+<table><h1>product details</h1>
+<form name='myloginform'>
+Enter the productname
+<input type='text' name='productname' placeholder='productname'/> <br/> <br/>
+Enter the actualprice
+<input type='text' name='actualprice' placeholder='price'/> <br/> <br/>
+Enter the quantity
+<input type='text' name='quantity' placeholder='quantity'/> <br/> <br/>
+Enter the discountprice
+<input type='text' name='discountprice' placeholder='discountprice'/> 
+<br/> <br/>
+
+<input type='reset' value='proceed' onclick='validate()'/> <br/> <br/>
+<input type='button'  value='display' onclick='display()'/>
+</form>
+</body>
+</html>
